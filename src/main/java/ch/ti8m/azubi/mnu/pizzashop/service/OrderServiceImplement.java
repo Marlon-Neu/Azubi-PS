@@ -28,8 +28,7 @@ public class OrderServiceImplement implements OrderService{
 
     @Override
     public List<Order> list() throws Exception{
-        List<Order> orderList = orderDAO.list();
-        return orderList;
+        return orderDAO.list();
     }
 
     @Override

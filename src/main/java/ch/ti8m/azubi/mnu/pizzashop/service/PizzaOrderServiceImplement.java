@@ -1,7 +1,6 @@
 package ch.ti8m.azubi.mnu.pizzashop.service;
 
 import ch.ti8m.azubi.mnu.pizzashop.dto.PizzaOrder;
-import ch.ti8m.azubi.mnu.pizzashop.persistence.OrderDAO;
 import ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaOrderDAO;
 
 import java.sql.Connection;
