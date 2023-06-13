@@ -3,16 +3,17 @@ package ch.ti8m.azubi.mnu.pizzashop.service;
 import ch.ti8m.azubi.mnu.pizzashop.dto.PizzaOrder;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public interface PizzaOrderService {
-    PizzaOrder get(int id) throws NoSuchElementException;
+    List<PizzaOrder> get(int id) throws Exception;
 
-    List<PizzaOrder> list();
+    List<List<PizzaOrder>> list() throws Exception;
 
-    PizzaOrder create(PizzaOrder pizzaOrder) throws IllegalArgumentException;
+    List<PizzaOrder> create(List<PizzaOrder> pizzaOrders) throws Exception;
 
-    void update(PizzaOrder order) throws IllegalArgumentException;
+    void update(List<PizzaOrder> pizzaOrders) throws Exception;
 
-    void remove(int id);
+    List<PizzaOrder> save(List<PizzaOrder> pizzaOrders) throws Exception;
+
+    void remove(int id) throws Exception;
 }
