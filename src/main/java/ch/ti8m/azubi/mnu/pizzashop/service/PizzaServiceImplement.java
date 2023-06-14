@@ -2,10 +2,8 @@ package ch.ti8m.azubi.mnu.pizzashop.service;
 
 import ch.ti8m.azubi.mnu.pizzashop.dto.Pizza;
 import ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaDAO;
-import org.mariadb.jdbc.Driver;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.NoSuchElementException;

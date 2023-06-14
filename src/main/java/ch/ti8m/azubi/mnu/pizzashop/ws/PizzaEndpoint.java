@@ -50,5 +50,5 @@ public class PizzaEndpoint {
 
     private PizzaService pizzaService() throws Exception{
         return ServiceRegistry.getInstance().get(PizzaService.class);
-    };
+    }
 }

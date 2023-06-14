@@ -4,7 +4,6 @@ import ch.ti8m.azubi.mnu.pizzashop.dto.Order;
 import ch.ti8m.azubi.mnu.pizzashop.persistence.OrderDAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.NoSuchElementException;
