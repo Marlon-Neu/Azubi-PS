@@ -1,11 +1,16 @@
 package ch.ti8m.azubi.mnu.pizzashop.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Pizza {
+    @JsonProperty("id")
     private Integer id;
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("price")
     private BigDecimal price;
 
     public Pizza(){

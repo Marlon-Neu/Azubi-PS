@@ -1,8 +1,13 @@
 package ch.ti8m.azubi.mnu.pizzashop.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PizzaOrder {
+    @JsonProperty("order_id")
     private Integer order_id;
+    @JsonProperty("pizza")
     private Pizza pizza;
+    @JsonProperty("amount")
     private Integer amount;
 
     public PizzaOrder(){

@@ -1,28 +1,34 @@
 package ch.ti8m.azubi.mnu.pizzashop;
 
-import java.io.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+/**
+ * Hello servlet
+ */
+@WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
-    private String message;
 
-    public void init() {
-        message = "Hello World!";
-    }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        PrintWriter writer = new PrintWriter(resp.getWriter());
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-    }
+        writer.write("<html>");
+        writer.write("<head>");
+        writer.write("<title>Example Servlet</title>");
+        writer.write("</head>");
+        writer.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">");
+        writer.write("<body>");
+        writer.write("<h1>Hello Servlet</h1>");
 
-    public void destroy() {
+        writer.write("Current time is: " + LocalDateTime.now());
+        writer.write("</body>");
+        writer.write("</html>");
     }
 }

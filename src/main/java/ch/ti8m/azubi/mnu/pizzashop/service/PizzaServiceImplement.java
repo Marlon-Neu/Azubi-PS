@@ -2,6 +2,7 @@ package ch.ti8m.azubi.mnu.pizzashop.service;
 
 import ch.ti8m.azubi.mnu.pizzashop.dto.Pizza;
 import ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaDAO;
+import org.mariadb.jdbc.Driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +15,7 @@ public class PizzaServiceImplement implements PizzaService{
 
 
     public PizzaServiceImplement() throws SQLException {
-        String connectionUrl = "jdbc:mariadb://localhost:3306/ti8m.mnupizzashop?user=PSWebapp&password=pass1234";
-        Connection connection = DriverManager.getConnection(connectionUrl);
+        Connection connection = MDBConnectionFactory.mariaDBConnection();
         pizzaDAO = new PizzaDAO(connection);
     }
     @Override
@@ -36,6 +36,9 @@ public class PizzaServiceImplement implements PizzaService{
     public Pizza create(Pizza pizza) throws Exception {
         if (pizza == null){
             throw new IllegalArgumentException("Pizza is required");
+        }
+        if (pizza.getId() != null){
+            throw new IllegalArgumentException("New pizza must not have an ID");
         }
         pizzaDAO.create(pizza);
         return pizza;

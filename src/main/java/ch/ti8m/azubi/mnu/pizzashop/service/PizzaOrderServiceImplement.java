@@ -15,8 +15,7 @@ public class PizzaOrderServiceImplement implements PizzaOrderService
 
 
     public PizzaOrderServiceImplement() throws SQLException {
-        String connectionUrl = "jdbc:mariadb://localhost:3306/ti8m.mnupizzashop?user=PSWebapp&password=pass1234";
-        Connection connection = DriverManager.getConnection(connectionUrl);
+        Connection connection = MDBConnectionFactory.mariaDBConnection();
         pizzaOrderDAO = new PizzaOrderDAO(connection);
     }
     @Override

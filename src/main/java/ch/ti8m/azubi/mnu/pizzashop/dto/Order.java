@@ -1,15 +1,22 @@
 package ch.ti8m.azubi.mnu.pizzashop.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
 public class Order {
+    @JsonProperty("id")
     private Integer id;
+    @JsonProperty("dateTime")
     private Timestamp dateTime;
+    @JsonProperty("phone")
     private String phone;
+    @JsonProperty("address")
     private String address;
 
+    @JsonProperty("pizzaOrders")
     private List<PizzaOrder> pizzaOrders;
 
     public Order() {

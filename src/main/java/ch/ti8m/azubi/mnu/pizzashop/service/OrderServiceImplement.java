@@ -13,8 +13,7 @@ public class OrderServiceImplement implements OrderService{
     private OrderDAO orderDAO;
 
     public OrderServiceImplement() throws SQLException {
-        String connectionUrl = "jdbc:mariadb://localhost:3306/ti8m.mnupizzashop?user=PSWebapp&password=pass1234";
-        Connection connection = DriverManager.getConnection(connectionUrl);
+        Connection connection = MDBConnectionFactory.mariaDBConnection();
         orderDAO = new OrderDAO(connection);
     }
     @Override
