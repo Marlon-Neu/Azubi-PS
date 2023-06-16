@@ -67,6 +67,9 @@ public class OrderDAO implements DAO<Order>{
             int generatedId = generatedKeys.getInt(1);
             order.setId(generatedId);
         }
+        for(PizzaOrder pizzaOrder : order.getPizzaOrders()){
+            pizzaOrder.setOrder_id(order.getId());
+        }
         pizzaOrderDAO.create(order.getPizzaOrders());
         return order;
     }
@@ -96,6 +99,10 @@ public class OrderDAO implements DAO<Order>{
     }
 
     public boolean delete(int id) throws Exception {
+        try (PreparedStatement statement = connection.prepareStatement("delete from pizza_orders where order_id=?")){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }
         pizzaOrderDAO.delete(id);
         try (PreparedStatement statement = connection.prepareStatement("delete from orders where id=?")) {
             statement.setInt(1, id);

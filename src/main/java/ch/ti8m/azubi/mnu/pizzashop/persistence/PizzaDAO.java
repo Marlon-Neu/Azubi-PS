@@ -85,6 +85,10 @@ public class PizzaDAO implements DAO<Pizza> {
     }
 
     public boolean delete(int id) throws Exception {
+        try (PreparedStatement statement = connection.prepareStatement("delete from pizza_orders where pizza_id=?")){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }
         try (PreparedStatement statement = connection.prepareStatement("delete from pizza where id=?")){
             statement.setInt(1,id);
             if(statement.executeUpdate() > 0){

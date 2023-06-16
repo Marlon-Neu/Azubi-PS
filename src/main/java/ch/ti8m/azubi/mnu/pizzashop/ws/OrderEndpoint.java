@@ -25,6 +25,12 @@ public class OrderEndpoint {
         return orderService().get(id);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void deleteOrder(@PathParam("id")int id) throws Exception {
+        orderService().remove(id);
+    }
+
 
     private static OrderService orderService() throws Exception
     {

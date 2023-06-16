@@ -46,16 +46,21 @@ public class OrderServlet extends HttpServlet {
             order.setPhone(req.getParameter("phone"));
             order.setDateTime(Timestamp.valueOf(LocalDateTime.now()));
 
-            List<Pizza> pizzaList = pizzaService.list();
             List<PizzaOrder> pizzaOrderList = new ArrayList<>();
-            int pizzaNumber = 0;
-            String pizza[] = req.getParameterValues("pizza[]");
+            String pizzas[] = req.getParameterValues("pizza[]");
+            for(String pizzaValue : pizzas){
+                Integer amount = Integer.valueOf(req.getParameter("pizzaAmount"+pizzaValue));
+                Pizza pizza = pizzaService.get(Integer.valueOf(pizzaValue));
+                pizzaOrderList.add(new PizzaOrder(pizza,amount));
+            }
+            order.setPizzaOrders(pizzaOrderList);
+            orderService.create(order);
         }
         catch (Exception e) {
             throw new RuntimeException(e);
         }
-
         resp.sendRedirect("order/"+order.getId());
+
     }
 
 

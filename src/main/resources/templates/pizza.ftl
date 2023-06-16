@@ -42,7 +42,7 @@
                 <input type="checkbox" id="pizza${pizza_index}" name="pizza[]" value="${pizza.id}" required>
                 <label for="pizza${pizza_index}">${pizza.name} : ${pizza.price} CHF </label>
                 <label for="pizzaAmount${pizza_index}">  Amount : </label>
-                <input type="number" id="pizzaAmount${pizza_index}" name="pizzaAmount${pizza_index}" value="1" min="1" max="10">
+                <input type="number" id="pizzaAmount${pizza_index}" name="pizzaAmount${pizza.id}" value="1" min="1" max="10">
                 <br>
             </#list>
         </div>

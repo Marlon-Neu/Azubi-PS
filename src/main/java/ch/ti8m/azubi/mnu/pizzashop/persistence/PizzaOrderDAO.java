@@ -96,10 +96,12 @@ public class PizzaOrderDAO implements DAO<List<PizzaOrder>> {
     public void update(List<PizzaOrder> pizzaOrderList) throws Exception {
         try(PreparedStatement statement = connection.prepareStatement("update pizza_orders set amount = ? where order_id = ? and pizza_id = ?")){
             for(PizzaOrder pizzaOrder: pizzaOrderList){
-                statement.setInt(1,pizzaOrder.getAmount());
-                statement.setInt(2,pizzaOrder.getOrder_id());
-                statement.setInt(3,pizzaOrder.getPizza().getId());
-                statement.executeUpdate();
+                if(pizzaOrder.getOrder_id() != null) {
+                    statement.setInt(1, pizzaOrder.getAmount());
+                    statement.setInt(2, pizzaOrder.getOrder_id());
+                    statement.setInt(3, pizzaOrder.getPizza().getId());
+                    statement.executeUpdate();
+                }
             }
         }
     }
