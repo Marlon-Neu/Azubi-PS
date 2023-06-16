@@ -50,7 +50,7 @@ public class OrderServlet extends HttpServlet {
             String pizzas[] = req.getParameterValues("pizza[]");
             for(String pizzaValue : pizzas){
                 Integer amount = Integer.valueOf(req.getParameter("pizzaAmount"+pizzaValue));
-                Pizza pizza = pizzaService.get(Integer.valueOf(pizzaValue));
+                Pizza pizza = pizzaService.get(Integer.parseInt(pizzaValue));
                 pizzaOrderList.add(new PizzaOrder(pizza,amount));
             }
             order.setPizzaOrders(pizzaOrderList);

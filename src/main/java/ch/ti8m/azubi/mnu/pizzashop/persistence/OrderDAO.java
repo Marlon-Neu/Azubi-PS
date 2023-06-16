@@ -1,10 +1,8 @@
 package ch.ti8m.azubi.mnu.pizzashop.persistence;
 
 import ch.ti8m.azubi.mnu.pizzashop.dto.Order;
-import ch.ti8m.azubi.mnu.pizzashop.dto.Pizza;
 import ch.ti8m.azubi.mnu.pizzashop.dto.PizzaOrder;
 
-import javax.xml.namespace.QName;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
