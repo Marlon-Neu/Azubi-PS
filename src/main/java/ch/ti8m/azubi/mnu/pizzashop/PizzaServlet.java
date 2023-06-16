@@ -5,7 +5,6 @@ import ch.ti8m.azubi.mnu.pizzashop.service.PizzaService;
 import ch.ti8m.azubi.mnu.pizzashop.service.ServiceRegistry;
 import freemarker.template.Template;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
