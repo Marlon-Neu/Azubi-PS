@@ -26,6 +26,12 @@ public class Order {
         this.phone = phone;
         this.address = address;
     }
+    public Order(Timestamp dateTime, String phone, String address, List<PizzaOrder> pizzaOrders) {
+        this.dateTime = dateTime;
+        this.phone = phone;
+        this.address = address;
+        this.pizzaOrders = pizzaOrders;
+    }
 
     public Integer getId() {
         return id;

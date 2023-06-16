@@ -19,6 +19,11 @@ public class PizzaOrder {
         this.amount = amount;
     }
 
+    public PizzaOrder(Pizza pizza, Integer amount) {
+        this.pizza = pizza;
+        this.amount = amount;
+    }
+
     public Integer getOrder_id() {
         return order_id;
     }
