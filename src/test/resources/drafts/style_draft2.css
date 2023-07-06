@@ -393,19 +393,44 @@ label{
 }
 
 .orderInfo{
+    align-self: flex-start;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     color: #1f0034;
     font-size: 2em;
     margin-top: .4em;
+    margin-left: 2.5em;
+    width: 82%;
+}
+.orderInfo > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.infoLabel{
+    font-size: .6em;
+    font-weight: bold;
+    font-family: Calibri;
+    border-bottom: solid #847e85 1px;
+    width: 100%;
+    color: #847e85;
+}
+
+.info{
+    color: #000c2c;
 }
 
 .orderHeader{
-    color: #1f0034;
+    color: #000c2c;
     align-self: flex-start;
-    font-size: 1.6em;
-    margin-top: -1em;
+    font-size: 1.4em;
+    margin-top: -1.1em;
+    font-family: Calibri;
+    font-weight: bold;
 }
 
 .titlePage{
@@ -433,3 +458,4 @@ label{
     padding: .5rem;
     width: fit-content;
 }
+

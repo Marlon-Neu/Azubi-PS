@@ -17,7 +17,7 @@
         <div>Willkommen bei</div>
         <div>"<u>M</u>y <u>N</u>ew <u>U</u>ntitled Pizza Shop!!"</div>
         <form method="GET" action="pizza">
-            <input type="submit" value="Order a Pizza">
+            <input type="submit" value="Pizza Bestellen">
         </form>
     </div>
 </div>

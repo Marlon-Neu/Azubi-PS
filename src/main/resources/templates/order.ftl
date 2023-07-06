@@ -16,14 +16,14 @@
     <div class="order">
         <div class="orderHeader">
             <div class="orderID">Order ${id}:</div>
-            <div class="orderDate">at ${dateTime}</div>
+            <div class="orderDate">um ${dateTime}</div>
         </div>
         <div class="orderInfo">
-            <div class="orderAddress">Address : ${address}</div>
-            <div class="orderPhone">Phone Number : ${phone}</div>
+            <div class="orderAddress"><div class="infoLabel">Addresse</div><div class="info"> ${address}</div></div>
+            <div class="orderPhone"><div class="infoLabel">Telefon Nummer</div><div class="info"> ${phone}</div></div>
         </div>
-        <div class="pizzaList test">
-            <div class="pizzaListTitle test">Pizzas Ordered:</div>
+        <div class="pizzaList">
+            <div class="pizzaListTitle">Pizzas bestellt:</div>
             <#list pizzaOrders as pizzaOrder>
                 <div class="pizzaItem">
                     <div class="name">${pizzaOrder.pizza.name}</div>

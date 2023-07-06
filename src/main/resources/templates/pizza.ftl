@@ -50,18 +50,18 @@
                 </div>
                 <div class="formArea">
                     <div class="formRow">
-                        <label for="address">Address:</label>
+                        <label for="address">Addresse:</label>
                         <input type="text" name="address" id="address" required>
                     </div>
                     <div class="formRow">
-                        <label for="phone">Phone:</label>
+                        <label for="phone">Telefon:</label>
                         <input type="text" name="phone" id="phone" required>
                     </div>
                     <label class="total"></label>
                     <input type="submit" value="Order">
                 </div>
             </form>
-            <div class="overlayWarning" hidden="hidden">At least one pizza is required!</div>
+            <div class="overlayWarning" hidden="hidden">Mindestens eine Pizza ist erforderlich!</div>
             <button class="cancelButton">&times;</button>
         </div>
     </div>
