@@ -1,11 +1,9 @@
 package ch.ti8m.azubi.mnu.pizzashop.persistence;
 
+import ch.ti8m.azubi.mnu.pizzashop.dto.Ingredient;
 import ch.ti8m.azubi.mnu.pizzashop.dto.Pizza;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +16,21 @@ public class PizzaDAO implements DAO<Pizza> {
     }
 
     public List<Pizza> list() throws Exception {
+        List<Pizza> pizzaList = new ArrayList<Pizza>();
         try(PreparedStatement statement = connection.prepareStatement("SELECT id,name,price from pizza")){
-            List<Pizza> pizzaList = new ArrayList<Pizza>();
+
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
                 Pizza pizza = new Pizza();
-                pizza.setId(resultSet.getInt("id"));
+                int id = resultSet.getInt("id");
+                pizza.setId(id);
                 pizza.setName(resultSet.getString("name"));
                 pizza.setPrice(resultSet.getBigDecimal("price"));
+                getIngredients(id, pizza);
                 pizzaList.add(pizza);
             }
-            return pizzaList;
         }
+        return pizzaList;
     }
 
     public Pizza get(int id) throws Exception {
@@ -41,6 +42,7 @@ public class PizzaDAO implements DAO<Pizza> {
                 pizza.setId(resultSet.getInt("id"));
                 pizza.setName(resultSet.getString("name"));
                 pizza.setPrice(resultSet.getBigDecimal("price"));
+                getIngredients(id, pizza);
                 return pizza;
             }
             return null;
@@ -58,6 +60,10 @@ public class PizzaDAO implements DAO<Pizza> {
             int generatedId = generatedKeys.getInt(1);
             pizza.setId(generatedId);
         }
+        for(Ingredient ingredient: pizza.getIngredients()){
+            createIngredient(ingredient);
+            createPizzaIngredient(pizza.getId(),ingredient.getId());
+        }
         return pizza;
     }
 
@@ -69,6 +75,10 @@ public class PizzaDAO implements DAO<Pizza> {
                 statement.setBigDecimal(2, pizza.getPrice());;
                 statement.setInt(3,pizza.getId());
                 statement.executeUpdate();
+            }
+            for(Ingredient ingredient: pizza.getIngredients()){
+                createIngredient(ingredient);
+                createPizzaIngredient(pizza.getId(),ingredient.getId());
             }
         }
     }
@@ -88,6 +98,10 @@ public class PizzaDAO implements DAO<Pizza> {
             statement.setInt(1,id);
             statement.executeUpdate();
         }
+        try (PreparedStatement statement = connection.prepareStatement("delete from pizza_ingredients where pizza_id=?")){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }
         try (PreparedStatement statement = connection.prepareStatement("delete from pizza where id=?")){
             statement.setInt(1,id);
             if(statement.executeUpdate() > 0){
@@ -95,5 +109,62 @@ public class PizzaDAO implements DAO<Pizza> {
             }
         }
         return false;
+    }
+
+
+    private void getIngredients(int id, Pizza pizza) throws SQLException {
+        List<Ingredient> ingredientList =new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement("select id,name\n" +
+                "from pizza_ingredients pi2 \n" +
+                "join ingredient i on pi2.ingredient_id = i.id \n" +
+                "where pi2.pizza_id = ?;")) {
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(resultSet.getInt("id"));
+                ingredient.setName(resultSet.getString("name"));
+                ingredientList.add(ingredient);
+            }
+        }
+        pizza.setIngredients(ingredientList);
+    }
+
+    private void createIngredient(Ingredient ingredient) throws Exception {
+        int index = findIngredient(ingredient.getName());
+        if(index == -1){
+            try(PreparedStatement statement = connection.prepareStatement("insert into ingredient (name) values (?)", Statement.RETURN_GENERATED_KEYS)){
+                statement.setString(1,ingredient.getName());
+                statement.executeUpdate();
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                generatedKeys.next();
+                int generatedId = generatedKeys.getInt(1);
+                ingredient.setId(generatedId);
+            }
+        }
+        else {
+            ingredient.setId(index);
+        }
+    }
+
+    private void createPizzaIngredient(Integer pizza_id,Integer ingredient_id) throws  Exception{
+        if((ingredient_id != null)&&(pizza_id!= null)){
+            try (PreparedStatement statement = connection.prepareStatement("insert into pizza_ingredients (pizza_id,ingredient_id) values (?,?)")){
+                statement.setInt(1,pizza_id);
+                statement.setInt(2,ingredient_id);
+                statement.executeUpdate();
+            }
+        }
+    }
+
+    private Integer findIngredient(String name) throws Exception{
+        try(PreparedStatement statement = connection.prepareStatement("SELECT id from ingredient where UPPER('name') = UPPER(?)")){
+            statement.setString(1,name);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                return resultSet.getInt("id");
+            }
+        }
+        return -1;
     }
 }

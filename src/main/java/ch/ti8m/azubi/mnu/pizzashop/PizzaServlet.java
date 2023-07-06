@@ -33,7 +33,7 @@ public class PizzaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
+        try{
             List<Pizza> pizzaList = pizzaService.list();
             PrintWriter writer = resp.getWriter();
             Map<String,Object> model = new HashMap<>();

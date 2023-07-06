@@ -3,6 +3,7 @@ package ch.ti8m.azubi.mnu.pizzashop.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 public class Pizza {
@@ -12,6 +13,8 @@ public class Pizza {
     private String name;
     @JsonProperty("price")
     private BigDecimal price;
+    @JsonProperty("pizzaIngredients")
+    private List<Ingredient> ingredients;
 
     public Pizza(){
 
@@ -34,6 +37,10 @@ public class Pizza {
         return name;
     }
 
+    public List<Ingredient> getIngredients(){
+        return ingredients;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -45,6 +52,8 @@ public class Pizza {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public void setIngredients(List<Ingredient> ingredients){this.ingredients = ingredients;}
 
     @Override
     public boolean equals(Object o){

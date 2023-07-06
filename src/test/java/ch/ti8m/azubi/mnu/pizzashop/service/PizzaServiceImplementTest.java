@@ -1,9 +1,11 @@
 package ch.ti8m.azubi.mnu.pizzashop.service;
 
+import ch.ti8m.azubi.mnu.pizzashop.dto.Ingredient;
 import ch.ti8m.azubi.mnu.pizzashop.dto.Pizza;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -22,7 +24,11 @@ class PizzaServiceImplementTest {
         List<Pizza> pizzaList= pizzaServ.list();
         assert (pizzaList.get(0).getId().equals(1));
         for(Pizza pizza : pizzaList){
-            System.out.println(pizza.getName() + ", " + pizza.getPrice());
+            System.out.println(pizza.getName() + ", " + pizza.getPrice() + " : ");
+            for (Ingredient ingredient: pizza.getIngredients()){
+                System.out.print(ingredient.getName()+" ");
+            }
+            System.out.println();
         }
     }
 
@@ -30,6 +36,10 @@ class PizzaServiceImplementTest {
     void saveAndRemove() throws Exception{
         PizzaServiceImplement  pizzaServ = new PizzaServiceImplement();
         Pizza testPizza = new Pizza("TestPizza",new BigDecimal("19.99"));
+        List<Ingredient> ingredientList = new ArrayList<Ingredient>(){{
+            add(new Ingredient("Tomatensauce"));
+            add(new Ingredient("Mozarella"));}};
+        testPizza.setIngredients(ingredientList);
         String newName = "TesterPizza";
 
         pizzaServ.save(testPizza);

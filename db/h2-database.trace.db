@@ -928,3 +928,197 @@ drop table if exists pizza [90107-214]
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+2023-07-03 15:26:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE `ingredient` (\000a  `id` int[*](11) NOT NULL AUTO_INCREMENT,\000a  `name` varchar(20) NOT NULL,\000a  PRIMARY KEY (`id`),\000a)"; erwartet "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE `ingredient` (\000a  `id` int[*](11) NOT NULL AUTO_INCREMENT,\000a  `name` varchar(20) NOT NULL,\000a  PRIMARY KEY (`id`),\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE `ingredient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+) [42001-214]
+2023-07-03 15:28:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE ingredient (\000a  id int[*](11) NOT NULL AUTO_INCREMENT,\000a  name varchar(20) NOT NULL,\000a  PRIMARY KEY (id)\000a)"; erwartet "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE ingredient (\000a  id int[*](11) NOT NULL AUTO_INCREMENT,\000a  name varchar(20) NOT NULL,\000a  PRIMARY KEY (id)\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE ingredient (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(20) NOT NULL,
+  PRIMARY KEY (id)
+) [42001-214]
+2023-07-03 15:29:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int[*](11) DEFAULT NULL,\000a  ingredient_id int(11) DEFAULT NULL,\000a  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; erwartet "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int[*](11) DEFAULT NULL,\000a  ingredient_id int(11) DEFAULT NULL,\000a  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int(11) DEFAULT NULL,
+  ingredient_id int(11) DEFAULT NULL,
+  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),
+  KEY pizza_ingredients_FK (ingredient_id),
+  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),
+  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)
+) [42001-214]
+2023-07-03 15:30:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int[*](11) DEFAULT NULL,\000a  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; erwartet "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int[*](11) DEFAULT NULL,\000a  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int DEFAULT NULL,
+  ingredient_id int(11) DEFAULT NULL,
+  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),
+  KEY pizza_ingredients_FK (ingredient_id),
+  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),
+  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)
+) [42001-214]
+2023-07-03 15:30:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000a  UNIQUE [*]KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; erwartet "("
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000a  UNIQUE [*]KEY pizza_ingredients_un (pizza_id,ingredient_id),\000a  KEY pizza_ingredients_FK (ingredient_id),\000a  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),\000a  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)\000a)"; expected "("; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int DEFAULT NULL,
+  ingredient_id int DEFAULT NULL,
+  UNIQUE KEY pizza_ingredients_un (pizza_id,ingredient_id),
+  KEY pizza_ingredients_FK (ingredient_id),
+  CONSTRAINT pizza_ingredients_FK FOREIGN KEY (ingredient_id) REFERENCES ingredient (id),
+  CONSTRAINT pizza_ingredients_FK_1 FOREIGN KEY (pizza_id) REFERENCES pizza (id)
+) [42001-214]
+2023-07-03 15:31:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000a[*])"; erwartet "identifier"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int DEFAULT NULL,
+  ingredient_id int DEFAULT NULL,
+) [42001-214]
+2023-07-03 15:32:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000aforeign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))[*])"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int DEFAULT NULL,\000a  ingredient_id int DEFAULT NULL,\000aforeign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))[*])"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int DEFAULT NULL,
+  ingredient_id int DEFAULT NULL,
+foreign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))) [42000-214]
+2023-07-03 15:33:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000aforeign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))[*])"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000aforeign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))[*])"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int not NULL,
+  ingredient_id int not NULL,
+foreign key (ingredient_id_id) references ingredient (id),foreign key (pizza_id) references pizza (id))) [42000-214]
+2023-07-03 15:34:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int not NULL,
+  ingredient_id int not NULL,
+  foreign key (ingredient_id_id) references ingredient (id),
+  foreign key (pizza_id) references pizza (id))) [42000-214]
+2023-07-03 15:34:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int not NULL,
+  ingredient_id int not NULL,
+  foreign key (ingredient_id) references ingredient (id),
+  foreign key (pizza_id) references pizza (id))) [42000-214]
+2023-07-03 15:36:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"
+Syntax error in SQL statement "CREATE TABLE pizza_ingredients (\000a  pizza_id int not NULL,\000a  ingredient_id int not NULL,\000a  foreign key (ingredient_id) references ingredient (id),\000a  foreign key (pizza_id) references pizza (id))[*])"; SQL statement:
+CREATE TABLE pizza_ingredients (
+  pizza_id int not NULL,
+  ingredient_id int not NULL,
+  foreign key (ingredient_id) references ingredient (id),
+  foreign key (pizza_id) references pizza (id))) [42000-214]
+2023-07-03 15:39:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Unerlaubter Wert "1" für Parameter "columnIndex"
+Invalid value "1" for parameter "columnIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcResultSet.checkColumnIndex(JdbcResultSet.java:3524)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:319)
+	at ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaDAO.createIngredient(PizzaDAO.java:141)
+	at ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaDAO.create(PizzaDAO.java:64)
+	at ch.ti8m.azubi.mnu.pizzashop.persistence.PizzaDAOTest.create(PizzaDAOTest.java:75)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:110)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:90)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:85)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+2023-07-03 15:48:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "PIZZA_ORDERS" nicht gefunden
+Table "PIZZA_ORDERS" not found; SQL statement:
+delete from pizza_orders where pizza_id=? [42102-214]
