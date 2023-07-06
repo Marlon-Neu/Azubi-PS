@@ -72,7 +72,7 @@ public class PizzaDAO implements DAO<Pizza> {
             try (PreparedStatement statement = connection.prepareStatement("update pizza set name = ?, price  = ?" +
                     "where id = ?")) {
                 statement.setString(1, pizza.getName());
-                statement.setBigDecimal(2, pizza.getPrice());;
+                statement.setBigDecimal(2, pizza.getPrice());
                 statement.setInt(3,pizza.getId());
                 statement.executeUpdate();
             }
