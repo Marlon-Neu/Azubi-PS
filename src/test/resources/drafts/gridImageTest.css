@@ -1,0 +1,25 @@
+.tokenContainer{
+    display: grid;
+    grid-template-columns: 8px 8px 8px 8px 144px;
+    grid-template-rows: 128px;
+
+}
+
+.token{
+    grid-row-start: 1;
+    height: 128px;
+    width: 128px;
+    content: url("images/pizzaToken.png");
+    position: relative;
+}
+
+.tokenAdd{
+    animation: tokenAnimation .3s;
+}
+.tokenRemove{
+    animation: tokenAnimation .3s reverse;
+}
+@keyframes tokenAnimation {
+    0%{ opacity: 0; left: 50px}
+    100%{ opacity: 1; left: 0}
+}

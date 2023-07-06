@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" type="text/css" href="style_draft1.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        $(function(){
+            let requiredCheckboxes = $('.pizzas :checkbox[required]');
+            requiredCheckboxes.change(function(){
+                if(requiredCheckboxes.is(':checked')) {
+                    requiredCheckboxes.removeAttr('required');
+                } else {
+                    requiredCheckboxes.attr('required', 'required');
+                }
+                $(this).parent().find(".pizzaAmount").toggleClass('pizzaAmountShow');
+            });
+            $(':checkbox:checked').parent().find(".pizzaAmount").toggleClass('pizzaAmountShow');
+        });
+
+    </script>
+</head>
+<body>
+<div class = "headers">
+    <h3>ti&m Azubi</h3>
+    <div class="welcome">
+        <h5>Willkommen bei</h5>
+        <h1>My New Untitled Pizza Shop</h1>
+    </div>
+</div>
+<div class = "content">
+
+    <div class = "pizzaList">
+        <div class="pizzaItem">
+            <div>Margherita</div>
+            <div>15.1 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Prosciutto</div>
+            <div>16.5 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Salami</div>
+            <div>16.5 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Rustica</div>
+            <div>17 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Funghi</div>
+            <div>16 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Prosciutto e funghi</div>
+            <div>16.5 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Frutti di mare</div>
+            <div>16.5 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Hawaii</div>
+            <div>17 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Marloni</div>
+            <div>18.5 CHF</div>
+        </div>
+        <div class="pizzaItem">
+            <div>Fhilippe</div>
+            <div>18.5 CHF</div>
+        </div>
+    </div>
+    <div class  = "orderForm">
+        <form action="order_draft1.html" method="get">
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="text" name="phone" id="phone" required>
+            </div>
+            <div class="form-group pizzas">
+                <div>
+                    <input type="checkbox" id="pizza0" name="pizza[]" value="1" required>
+                    <label for="pizza0">Margherita : 15.1 CHF </label>
+                    <label for="pizzaAmount0" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount0" name="pizzaAmount0" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza1" name="pizza[]" value="2" required>
+                    <label for="pizza1">Prosciutto : 16.5 CHF </label>
+                    <label for="pizzaAmount1" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount1" name="pizzaAmount1" value="1" min="1" max="10" class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza2" name="pizza[]" value="3" required>
+                    <label for="pizza2">Salami : 16.5 CHF </label>
+                    <label for="pizzaAmount2" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount2" name="pizzaAmount2" value="1" min="1" max="10" class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza3" name="pizza[]" value="4" required>
+                    <label for="pizza3">Rustica : 17 CHF </label>
+                    <label for="pizzaAmount3" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount3" name="pizzaAmount3" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza4" name="pizza[]" value="5" required>
+                    <label for="pizza4">Funghi : 16 CHF </label>
+                    <label for="pizzaAmount4"  class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount4" name="pizzaAmount4" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza5" name="pizza[]" value="6" required>
+                    <label for="pizza5">Prosciutto e funghi : 16.5 CHF </label>
+                    <label for="pizzaAmount5"  class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount5" name="pizzaAmount5" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza6" name="pizza[]" value="7" required>
+                    <label for="pizza6">Frutti di mare : 16.5 CHF </label>
+                    <label for="pizzaAmount6" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount6" name="pizzaAmount6" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza7" name="pizza[]" value="8" required>
+                    <label for="pizza7">Hawaii : 17 CHF </label>
+                    <label for="pizzaAmount7" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount7" name="pizzaAmount7" value="1" min="1" max="10"  class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza8" name="pizza[]" value="9" required>
+                    <label for="pizza8">Marloni : 18.5 CHF </label>
+                    <label for="pizzaAmount8" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount8" name="pizzaAmount8" value="1" min="1" max="10" class="pizzaAmount">
+                </div>
+                <div>
+                    <input type="checkbox" id="pizza9" name="pizza[]" value="10" required>
+                    <label for="pizza9">Fhilippe : 18.5 CHF </label>
+                    <label for="pizzaAmount9" class="pizzaAmount">  Amount : </label>
+                    <input type="number" id="pizzaAmount9" name="pizzaAmount9" value="1" min="1" max="10" class="pizzaAmount">
+                </div>
+            </div>
+            <input type="submit" value="Order">
+        </form>
+    </div>
+</div>
+</body>
+</html>

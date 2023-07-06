@@ -1,0 +1,213 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" type="text/css" href="style_draft2.css">
+    <script src="jquery-3.7.0.js"></script>
+    <script src="script_draft2.js"></script>
+</head>
+<div class = "headers">
+    <h3>ti&m Azubi</h3>
+    <div class="welcome">
+        <h5>Willkommen bei</h5>
+        <h1>My New Untitled Pizza Shop</h1>
+
+    </div>
+</div>
+<body>
+<div class = "content" >
+    <div class = "pizzaList">
+        <div class="pizzaListTitle">Unsere Pizzas</div>
+        <div class="pizzaListRow row0" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem0">
+                <div class ="name">Margherita</div>
+                <div class ="price">CHF 15.10</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=15.1>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="1">
+            </div>
+        </div>
+        <div class="pizzaListRow row1" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem1">
+                <div class ="name">Prosciutto</div>
+                <div class ="price">CHF 16.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=16.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Schinken </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="2">
+            </div>
+        </div>
+        <div class="pizzaListRow row2" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem2">
+                <div class ="name">Salami</div>
+                <div class ="price">CHF 16.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=16.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Salami </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="3">
+            </div>
+        </div>
+        <div class="pizzaListRow row3" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem3">
+                <div class ="name">Rustica</div>
+                <div class ="price">CHF 17.00</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=17>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Schinken, Zwiebel, Speck </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="4">
+            </div>
+        </div>
+        <div class="pizzaListRow row4" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem4">
+                <div class ="name">Funghi</div>
+                <div class ="price">CHF 16.00</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=16>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Pilz </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="5">
+            </div>
+        </div>
+        <div class="pizzaListRow row5" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem5">
+                <div class ="name">Prosciutto e funghi</div>
+                <div class ="price">CHF 16.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=16.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Schinken, Pilz </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="6">
+            </div>
+        </div>
+        <div class="pizzaListRow row6" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem6">
+                <div class ="name">Frutti di mare</div>
+                <div class ="price">CHF 16.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=16.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Meeresfrüchte </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="7">
+            </div>
+        </div>
+        <div class="pizzaListRow row7" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem7">
+                <div class ="name">Hawaii</div>
+                <div class ="price">CHF 17.00</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=17>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Schinken, Ananas </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="8">
+            </div>
+        </div>
+        <div class="pizzaListRow row8" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem8">
+                <div class ="name">Marloni</div>
+                <div class ="price">CHF 18.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=18.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Zwiebel, Speck, Mascarpone, Grana Padano </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="9">
+            </div>
+        </div>
+        <div class="pizzaListRow row9" >
+            <div class="tokenGrid"></div>
+            <div class="pizzaItem" id="pizzaItem9">
+                <div class ="name">Fhilippe</div>
+                <div class ="price">CHF 18.50</div>
+                <input type="hidden" class="pizzaPrice" name="pizzaPrice[]" value=18.5>
+                <div class="break"></div>
+                <div class="ingredientList"> Tomatensauce, Mozarella, Oregano, Crevetten, Spinat, Rettich </div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID" name="pizzaID[]" value="10">
+            </div>
+        </div>
+    </div>
+    <div class="listButtons">
+        <button class="orderButton">Go to Order</button>
+        <button class="clearButton">Clear</button>
+    </div>
+</div>
+<div class='overlay'>
+    <div class='overlayContent'>
+        <form class="overlayForm">
+            <div class = 'pizzaList' id='overlayPizza'>
+                <div class="pizzaListTitle">Current Order: </div>
+
+            </div>
+            <div class="formArea">
+                <div class="formRow">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div class="formRow">
+                    <label for="phone">Phone:</label>
+                    <input type="text" name="phone" id="phone" required>
+                </div>
+                <label class="total"></label>
+                <input type="submit" value="Order">
+            </div>
+        </form>
+        <div class="overlayWarning" hidden="hidden">At least one pizza is required!</div>
+        <button class="cancelButton">&times;</button>
+    </div>
+</div>
+</body>
+</html>

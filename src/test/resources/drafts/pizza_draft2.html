@@ -1,0 +1,178 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" type="text/css" href="style_draft2.css">
+    <script src="jquery-3.7.0.js"></script>
+    <script src="script_draft1.js"></script>
+</head>
+<div class = "headers">
+    <h3>ti&m Azubi</h3>
+    <div class="welcome">
+        <h5>Willkommen bei</h5>
+        <h1>My New Untitled Pizza Shop</h1>
+
+    </div>
+</div>
+<body>
+<div class = "content" >
+    <div class = "pizzaList">
+        <div class="pizzaListRow">
+            <div class="tokenGrid row0"></div>
+            <div class="pizzaItem" id="pizzaItem0">
+                <div>Margherita</div>
+                <div>CHF 15.1</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row0" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row0" name="pizzaID[]" value="1">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row1"></div>
+            <div class="pizzaItem" id="pizzaItem1">
+                <div>Prosciutto</div>
+                <div>CHF 16.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row1" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row1" name="pizzaID[]" value="2">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row2"></div>
+            <div class="pizzaItem" id="pizzaItem2">
+                <div>Salami</div>
+                <div>CHF 16.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row2" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row2" name="pizzaID[]" value="3">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row3"></div>
+            <div class="pizzaItem" id="pizzaItem3">
+                <div>Rustica</div>
+                <div>CHF 17</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row3" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row3" name="pizzaID[]" value="4">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row4"></div>
+            <div class="pizzaItem" id="pizzaItem4">
+                <div>Funghi</div>
+                <div>CHF 16</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row4" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row4" name="pizzaID[]" value="5">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row5"></div>
+            <div class="pizzaItem" id="pizzaItem5">
+                <div>Prosciutto e funghi</div>
+                <div>CHF 16.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row5" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row5" name="pizzaID[]" value="6">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row6"></div>
+            <div class="pizzaItem" id="pizzaItem6">
+                <div>Frutti di mare</div>
+                <div>CHF 16.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row6" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row6" name="pizzaID[]" value="7">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row7"></div>
+            <div class="pizzaItem" id="pizzaItem7">
+                <div>Hawaii</div>
+                <div>CHF 17</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row7" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row7" name="pizzaID[]" value="8">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row8"></div>
+            <div class="pizzaItem" id="pizzaItem8">
+                <div>Marloni</div>
+                <div>CHF 18.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row8" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row8" name="pizzaID[]" value="9">
+            </div>
+        </div>
+        <div class="pizzaListRow">
+            <div class="tokenGrid row9"></div>
+            <div class="pizzaItem" id="pizzaItem9">
+                <div>Fhilippe</div>
+                <div>CHF 18.5</div>
+            </div>
+            <div class="adjustButtons">
+                <button class="circleButton addPizza" type="button"> + </button>
+                <button class="circleButton removePizza" type="button"> - </button>
+                <input type="hidden" class="pizzaAmount row9" name="pizzaAmount[]" value="0" >
+                <input type="hidden" class="pizzaID row9" name="pizzaID[]" value="10">
+            </div>
+        </div>
+    </div>
+
+    <button class="orderButton">Order</button>
+    <button class="clearButton">Clear</button>
+
+    <div class='overlay'>
+        <div class='overlayContent'>
+            <form class="overlayForm">
+                <div class = 'pizzaList' id='overlayPizza'>
+
+                </div>
+                <div class="formRow">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div class="formRow">
+                    <label for="phone">Phone:</label>
+                    <input type="text" name="phone" id="phone" required>
+                </div>
+                <input type="submit" value="Order">
+            </form>
+            <div class="overlayWarning" hidden="hidden">At least one pizza is required!</div>
+            <button class="cancelButton">exit</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
