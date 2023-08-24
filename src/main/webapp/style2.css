@@ -265,7 +265,7 @@ button.circleButton{
 
 .overlay{
     background-color: rgba(140, 133, 133, 0.8);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     min-height: 100vh;
