@@ -139,7 +139,7 @@ $(function(){
             }
             updateTotal();
         }
-        if(overlayPizza.children().length === 0){
+        if(overlayPizza.children(".pizzaListRow").length === 0){
             $(".overlayForm").hide();
             $(".overlayWarning").show();
         }
@@ -147,7 +147,7 @@ $(function(){
 
     $(".cancelButton").click(function (){
         $(".overlay").css("visibility","hidden")
-        $("#overlayPizza").children().remove();
+        $("#overlayPizza").children(".pizzaListRow").remove();
         //Returns Form and Warning to default
         $(".overlayForm").show();
         $(".overlayWarning").hide();
