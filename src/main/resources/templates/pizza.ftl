@@ -37,7 +37,7 @@
             </#list>
         </div>
         <div class="listButtons">
-            <button class="orderButton">Go to Order</button>
+            <button class="orderButton">Bestellen</button>
             <button class="clearButton">Clear</button>
         </div>
     </div>
