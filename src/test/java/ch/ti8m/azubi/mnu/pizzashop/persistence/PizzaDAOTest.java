@@ -88,12 +88,19 @@ class PizzaDAOTest {
         try(Connection conn = ConnectionFactory.testConnection()) {
             PizzaDAO pizzaDAO = new PizzaDAO(conn);
             Pizza pizza = new Pizza("Margherita",new BigDecimal("17.23"));
-            Ingredient ingredient = new Ingredient("Tomato");
-            List<Ingredient> ingredientList = new ArrayList<Ingredient>() {{add(ingredient);}};
+            List<Ingredient> ingredientList = new ArrayList<Ingredient>() {{add(new Ingredient("Tomato"));
+                add (new Ingredient("Cheese"));}};
             pizza.setIngredients(ingredientList);
             pizzaDAO.create(pizza);
             assert(pizza.getId() != null);
-            assert(pizza.getId() == 1);
+            assert(pizza.getId().equals(1));
+            Pizza pizzaNew = new Pizza("Margherita New",new BigDecimal("17.33"));
+            pizzaNew.setIngredients(ingredientList);
+            pizzaDAO.create(pizzaNew);
+            assert (pizzaNew.getId().equals(2));
+            System.out.println(pizzaNew.getIngredients().get(0).getId());
+            assert (pizzaNew.getIngredients().get(0).getId().equals(1));
+
         }
     }
 

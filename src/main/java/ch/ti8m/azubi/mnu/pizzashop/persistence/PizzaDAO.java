@@ -158,7 +158,7 @@ public class PizzaDAO implements DAO<Pizza> {
     }
 
     private Integer findIngredient(String name) throws Exception{
-        try(PreparedStatement statement = connection.prepareStatement("SELECT id from ingredient where UPPER('name') = UPPER(?)")){
+        try(PreparedStatement statement = connection.prepareStatement("SELECT id from ingredient where UPPER(name) = UPPER(?)")){
             statement.setString(1,name);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
